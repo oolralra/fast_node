@@ -1,0 +1,19 @@
+html
+    head
+        title 게시판
+    body
+        h1 게시판
+        form(action="/board", method="post")
+            label(for="username") 이름:
+            input(type="text", id="username", name="username", required)
+            br
+            label(for="text") 메시지:
+            textarea(id="text", name="text", required)
+            br
+            button(type="submit") 게시글 작성
+        h2 게시글 목록
+        ul
+            each message in messages
+                li
+                    strong= message.username + ": "
+                    |  #{message.text}
